@@ -53,7 +53,7 @@ class ThreeDMatchTrainDataset(torch.utils.data.Dataset):
   def __getitem__(self, index):
     #get source from index, get target randomly
     src_name = list(self.src_to_tgt.keys())[index]
-    tgt_name = random.choice(self.src_to_tgt[src_name])
+    tgt_name = np.random.choice(self.src_to_tgt[src_name])
 
     #-----------generate patch pair from point clouds-------------#
     
@@ -68,7 +68,7 @@ class ThreeDMatchTrainDataset(torch.utils.data.Dataset):
     src_points = self.points[src_index]
     tgt_points = self.points[tgt_index]
 
-    if random.choice([True, False]):
+    if np.random.choice([True, False]):
       #key points location
       src_keypt = np.array(src_points[corrPair[0]])
       tgt_keypt = np.array(tgt_points[corrPair[1]])
