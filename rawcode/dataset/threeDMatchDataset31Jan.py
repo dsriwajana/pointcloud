@@ -17,6 +17,11 @@ def randomly_rotation_matrix(augment_rotation=1):
                    [0, 0, 1]])
     return Rx @ Ry @ Rz
 
+def make_point_cloud(pts):
+    pcd = o3d.geometry.PointCloud()
+    pcd.points = o3d.utility.Vector3dVector(pts)
+    return pcd
+
 class ThreeDMatchTrainDataset(torch.utils.data.Dataset):
 
   def __init__(self, 
